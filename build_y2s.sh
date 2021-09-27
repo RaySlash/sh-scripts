@@ -2,7 +2,7 @@
 
 #Cloning
 # Clone github.com/exynoobs repos and add commits
-cd ~/losr
+cd ~/flos
 BRANCH="lineage-18.1"
 
 gitclo(){
@@ -24,11 +24,12 @@ git fetch https://github.com/RaySlash/android_device_samsung_exynos990-common-1 
 git cherry-pick 94310504f610bfc3da0018c5e2cc45a93a6ecd50^..8bd8c0679f323ddcc71a99c2fc9510a35f8b2b16
 echo "DEVICE_PACKAGE_OVERLAYS += \\
       \$(COMMON_PATH)/overlay-lineage" >> common.mk
-rm -rf overlay-lineage/packages/apps/Settings/res/values/config.xml
-mv ~/steve/build/config.xml ~/losr/device/samsung/exynos990-common/overlay-lineage/packages/apps/Settings/res/values/config.xml
+# Random fixes
+#rm -rf overlay-lineage/packages/apps/Settings/res/values/config.xml
+#mv ~/steve/build/config.xml ~/losr/device/samsung/exynos990-common/overlay-lineage/packages/apps/Settings/res/values/config.xml
 git add *
 git commit -m "Touchup Fix"
-cd ~/losr/
+cd ~/flos/
 
 #Building
 # Start Jenkins Build
