@@ -12,21 +12,21 @@ gitclo(){
 }
 
 gitclo https://github.com/Exynoobs/android_device_samsung_exynos990-common
-#Disable script for kernel temporarily
-#gitclo https://github.com/Exynoobs/android_kernel_samsung_exynos990
+gitclo https://github.com/Exynoobs/android_kernel_samsung_exynos990
 gitclo https://github.com/Exynoobs/proprietary_vendor_samsung_exynos990-common
 gitclo https://github.com/Exynoobs/android_device_samsung_y2s
 gitclo https://github.com/Exynoobs/proprietary_vendor_samsung_y2s
+gitclo https://github.com/LineageOS/android_device_samsung_slsi_sepolicy
 
 # Merge commits
-cd device/samsung/exynos990-common &&
+cd ~/flos/device/samsung/exynos990-common &&
 git fetch https://github.com/RaySlash/android_device_samsung_exynos990-common-1 $BRANCH &&
 git cherry-pick 94310504f610bfc3da0018c5e2cc45a93a6ecd50^..8bd8c0679f323ddcc71a99c2fc9510a35f8b2b16
 echo "DEVICE_PACKAGE_OVERLAYS += \\
       \$(COMMON_PATH)/overlay-lineage" >> common.mk
 # Random fixes
-#rm -rf overlay-lineage/packages/apps/Settings/res/values/config.xml
-#mv ~/steve/build/config.xml ~/losr/device/samsung/exynos990-common/overlay-lineage/packages/apps/Settings/res/values/config.xml
+rm -rf ~/flos/device/samsung/exynos990-common/overlay-lineage/packages/apps/Settings/res/values/config.xml
+mv ~/steve/build/config.xml ~/flos/device/samsung/exynos990-common/overlay-lineage/packages/apps/Settings/res/values/config.xml
 git add *
 git commit -m "Touchup Fix"
 cd ~/flos/
